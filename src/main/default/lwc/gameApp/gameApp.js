@@ -1,6 +1,7 @@
 import { LightningElement, track, wire } from 'lwc';
 import getCurrentQuestion from '@salesforce/apex/QuizController.getCurrentQuestion';
 import resetGame from '@salesforce/apex/QuizController.resetGame';
+//import saveScores from '@salesforce/apex/QuizController.saveScores';
 import checkSettings from '@salesforce/apex/QuizController.checkSettings';
 import getQuizSession from '@salesforce/apex/QuizController.getQuizSession';
 import getQuizSettings from '@salesforce/apex/QuizController.getQuizSettings';
@@ -84,6 +85,15 @@ export default class GameApp extends LightningElement {
             });
         }
     }
+
+    //handleSaveScoresClick() {
+        // eslint-disable-next-line no-alert
+    //    if (window.confirm('Save scores for Users?')) {
+    //        saveScores().then(() => {
+    //            window.location.reload();
+    //        });
+    //    }
+    //}
 
     get quizPhaseLabel() {
         if (this.quizSession) {

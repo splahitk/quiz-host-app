@@ -98,6 +98,14 @@ public with sharing class QuizController {
         QuizSessionHelper.pushPhaseUpdateToPlayerApp(session.Phase__c);
     }
 
+    //@AuraEnabled
+    //public static void saveScores() {
+    //    List<Quiz_Player__c> players = playerService.getPlayersWithUserIds();
+    //    if(players.size() > 0) {
+    //        playerService.updateUserScores(players);
+    //    }
+    //}
+
     @AuraEnabled
     public static void checkSettings() {
         try {
