@@ -43,12 +43,12 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/pozil/quiz-sfdx.git"
+        "url": "git+https://github.com/splahitk/quiz-sfdx.git"
     },
     "author": "salesforce.com",
     "license": "CC0-1.0",
     "bugs": {
-        "url": "https://github.com/pozil/quiz-sfdx/issues"
+        "url": "https://github.com/splahitk/quiz-sfdx/issues"
     },
-    "homepage": "https://github.com/pozil/quiz-sfdx#readme"
+    "homepage": "https://github.com/splahitk/quiz-sfdx#readme"
 }

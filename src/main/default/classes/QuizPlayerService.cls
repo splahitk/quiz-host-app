@@ -31,6 +31,20 @@ public class QuizPlayerService extends QuizAbstractDataService {
         return Database.query(query);
     }
 
+    public void updateUserScores() {
+        List<User> users = new List<User>();
+        List<Quiz_Player__c> players = [SELECT Id, Name, Score__c, User__c, Total_Quiz_Points__c FROM Quiz_Player__c WHERE User__c != ''];
+        if(players != null && players.size() > 0) { 
+            for(Quiz_Player__c p : players) {
+                User u = new User(); 
+                u.Id = p.User__c; //User to update
+                u.Total_Quiz_Points__c = p.Total_Quiz_Points__c + p.Score__c; //Total Quiz Points of User + Score from this Quiz
+                users.add(u);
+            }
+            update users;
+        }
+    }
+
     public Map<Id, Quiz_Player__c> getPlayers() {
         return new Map<Id, Quiz_Player__c>(
             [SELECT Id, Score__c FROM Quiz_Player__c]
@@ -38,6 +52,7 @@ public class QuizPlayerService extends QuizAbstractDataService {
     }
 
     public void deleteAnswersAndPlayers() {
+        updateUserScores(); //Update User scores before deleting Players and Answers
         delete [SELECT Id FROM Quiz_Answer__c];
         delete [SELECT Id FROM Quiz_Player__c];
     }
